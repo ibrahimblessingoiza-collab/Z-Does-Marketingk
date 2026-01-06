@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z Does Marketing | Performance Marketing for Startups & SMEs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zdark: '#1a1a1a',
+                        zpink: '#f8c6c8',
+                        zwhite: '#faf8f5',
+                        zrose: '#b76e79',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #b76e79, #f8c6c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at top right, rgba(183, 110, 121, 0.15), transparent), 
+                        radial-gradient(circle at bottom left, rgba(248, 198, 200, 0.05), transparent);
+            background-color: #1a1a1a;
+        }
+
+        .ai-card, .form-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(183, 110, 121, 0.2);
+            transition: all 0.3s ease;
+        }
+        .ai-card:hover {
+            border-color: #b76e79;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        input, select, textarea {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #b76e79 !important;
+            outline: none;
+        }
+
+        /* Fix: Make dropdown options visible with a solid dark background */
+        select option {
+            background-color: #1a1a1a;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-zdark text-zwhite">
+
+    <nav class="fixed w-full z-50 bg-[#1a1a1a]/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tight text-zwhite">
+                Z DOES <span class="text-zrose">MARKETING</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#services" class="hover:text-zpink transition">Services</a>
+                <a href="#ai-tools" class="hover:text-zpink transition">✨ AI Tools</a>
+                <a href="#reviews" class="hover:text-zpink transition">Reviews</a>
+            </div>
+            <a href="#contact-form" class="bg-zrose hover:bg-zpink hover:text-zdark text-white px-5 py-2 rounded-full text-sm font-semibold transition duration-300">
+                Get a Free Audit
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-bg pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-zrose/20 text-zpink text-xs font-bold tracking-widest uppercase mb-6 border border-zrose/30">
+                Available for New Projects
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-zwhite mb-6 leading-tight">
+                I help Founders, SMEs, and Service Providers scale <span class="gradient-text">Revenue</span>.
+            </h1>
+            <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+                Stop guessing with your marketing. I build high-performance Meta & TikTok ad engines for startups and established businesses that want more leads and sales.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#services" class="bg-zwhite text-zdark px-8 py-4 rounded-xl font-bold hover:bg-zpink transition duration-300">
+                    View Packages
+                </a>
+                <a href="#ai-tools" class="border border-zrose text-zrose px-8 py-4 rounded-xl font-bold transition duration-300 hover:bg-zrose hover:text-white">
+                    Try ✨ AI Tools
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="py-24 px-6 bg-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-zwhite mb-4">Strategic Growth Services</h2>
+                <p class="text-gray-400">Tailored solutions for independent founders and small-to-medium businesses.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Service 1: Tracking Foundation -->
+                <div class="bg-zdark p-8 rounded-2xl border border-white/10 hover:border-zrose transition relative group shadow-lg shadow-black/30">
+                    <h3 class="text-xl font-bold text-zwhite mb-2">Tracking Foundation</h3>
+                    <p class="text-gray-400 text-sm mb-6">Ensures you don't waste money on ads that can't track sales.</p>
+                    <div class="text-2xl font-bold text-zpink mb-6">₦120,000 <span class="text-sm text-gray-500 font-normal">($150 Foreign)</span></div>
+                    <ul class="text-sm text-gray-300 space-y-3 mb-8">
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Meta Pixel & Conversion API (CAPI)</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Standard Events (Add to Cart, Lead)</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Basic TikTok Pixel Installation</li>
+                    </ul>
+                    <button onclick="selectService('tracking')" class="w-full text-center py-3 bg-white/10 hover:bg-zrose hover:text-white text-zwhite rounded-lg font-semibold transition duration-300">Get Started</button>
+                </div>
+
+                <!-- Service 2: Performance Scale -->
+                <div class="bg-zdark p-8 rounded-2xl border-2 border-zrose relative shadow-xl shadow-zrose/10">
+                    <div class="bg-zrose text-white text-[10px] uppercase font-bold px-3 py-1 absolute top-4 right-4 rounded-full">Outsourced Growth Dept</div>
+                    <h3 class="text-xl font-bold text-zwhite mb-2">Performance Scale</h3>
+                    <p class="text-gray-400 text-sm mb-6">Full management of your Meta & TikTok ad accounts to drive revenue.</p>
+                    <div class="text-2xl font-bold text-zpink mb-6">₦250,000 <span class="text-sm text-gray-500 font-normal">/mo ($450 Foreign)</span></div>
+                    <ul class="text-sm text-gray-300 space-y-3 mb-8">
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Full Media Buying (Meta & TikTok)</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Creative Strategy (Canva/CapCut)</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Weekly ROAS Optimization</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Monthly Performance Reporting</li>
+                    </ul>
+                    <button onclick="selectService('performance')" class="w-full text-center py-3 bg-zrose hover:bg-zpink hover:text-zdark text-white rounded-lg font-semibold transition duration-300">Start Scaling</button>
+                </div>
+
+                <!-- Service 3: Growth Audit -->
+                <div class="bg-zdark p-8 rounded-2xl border border-white/10 hover:border-zrose transition shadow-lg shadow-black/30">
+                    <h3 class="text-xl font-bold text-zwhite mb-2">Growth Audit</h3>
+                    <p class="text-gray-400 text-sm mb-6">A deep dive into your funnel. Ideal for Developers & Business Owners.</p>
+                    <div class="text-2xl font-bold text-zpink mb-6">₦30,000 <span class="text-sm text-gray-500 font-normal">/session ($40 Foreign)</span></div>
+                    <ul class="text-sm text-gray-300 space-y-3 mb-8">
+                        <li><i class="fas fa-check text-zrose mr-2"></i> 60-Minute Strategy Call</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Funnel Teardown (Web/App)</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Custom Ad Strategy & Targeting</li>
+                    </ul>
+                    <button onclick="selectService('audit')" class="w-full text-center py-3 bg-white/10 hover:bg-zrose hover:text-white text-zwhite rounded-lg font-semibold transition duration-300">Book Audit</button>
+                </div>
+
+                <!-- Service 4: Social Commerce Launch -->
+                <div class="bg-zdark p-8 rounded-2xl border border-white/10 hover:border-zrose transition shadow-lg shadow-black/30">
+                    <h3 class="text-xl font-bold text-zwhite mb-2">Social Commerce Launch</h3>
+                    <p class="text-gray-400 text-sm mb-6">For Nigerian vendors ready to professionalize their sales.</p>
+                    <div class="text-2xl font-bold text-zpink mb-6">₦50,000 <span class="text-sm text-gray-500 font-normal">/ special</span></div>
+                    <ul class="text-sm text-gray-300 space-y-3 mb-8">
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Sales Funnel Setup</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> 1-Week "Boosted Content" Strategy</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Content Creation (If needed)</li>
+                        <li><i class="fas fa-check text-zrose mr-2"></i> Basic Bio & Link Optimization</li>
+                    </ul>
+                    <button onclick="selectService('social')" class="w-full text-center py-3 bg-white/10 hover:bg-zrose hover:text-white text-zwhite rounded-lg font-semibold transition duration-300">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact-form" class="py-24 px-6 bg-zdark">
+        <div class="max-w-3xl mx-auto">
+            <div class="form-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-4">Start Your Growth Journey</h2>
+                    <p class="text-gray-400">Fill in your details and I'll reach out within 24 hours.</p>
+                </div>
+
+                <form id="growthForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                            <input type="email" required id="formEmail" class="w-full px-4 py-3 rounded-xl" placeholder="you@company.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Preferred Service</label>
+                            <select id="formService" class="w-full px-4 py-3 rounded-xl">
+                                <option value="tracking">Tracking Foundation</option>
+                                <option value="performance">Ads Performance Scale</option>
+                                <option value="audit">Business Growth Audit</option>
+                                <option value="social">Social Sales Launch</option>
+                                <option value="other">Other / Custom Strategy</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Means of Contact</label>
+                            <select id="formContact" class="w-full px-4 py-3 rounded-xl">
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="email">Email Only</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Contact Info (Phone/Handle)</label>
+                            <input type="text" required id="formContactDetail" class="w-full px-4 py-3 rounded-xl" placeholder="e.g. +234 ... or @handle">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Preferred Contact Time</label>
+                        <select id="formTime" class="w-full px-4 py-3 rounded-xl">
+                            <option value="morning">Morning (9AM - 12PM)</option>
+                            <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                            <option value="evening">Evening (5PM - 8PM)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-zrose hover:bg-zpink hover:text-zdark text-white py-4 rounded-xl font-bold text-lg transition duration-300 shadow-lg shadow-zrose/20">
+                        Submit My Request
+                    </button>
+                </form>
+
+                <div id="formSuccess" class="hidden text-center py-10">
+                    <div class="text-zrose text-6xl mb-4"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="text-2xl font-bold mb-2">Request Received!</h3>
+                    <p class="text-gray-400 mb-6">I've received your details and will contact you at your preferred time.</p>
+                    <button onclick="resetForm()" class="text-zpink underline">Send another request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories & AI Tools Sections -->
+    <section id="ai-tools" class="py-24 px-6 bg-white/5 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-zwhite mb-4">Try My ✨ AI Growth Suite</h2>
+                <p class="text-gray-400">Powered by Gemini. Get a taste of how I think about performance marketing.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tool 1: Ad Copy Generator -->
+                <div class="ai-card p-8 rounded-2xl flex flex-col h-full">
+                    <div class="mb-6">
+                        <i class="fas fa-pencil-alt text-zrose text-2xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-zwhite mb-2">Ad Copy ✨</h3>
+                        <p class="text-gray-400 text-sm">Generate high-converting Meta/TikTok copy for your product.</p>
+                    </div>
+                    <textarea id="productDesc" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-sm text-zwhite mb-4 focus:border-zrose outline-none h-24" placeholder="Describe your product..."></textarea>
+                    <button onclick="runAdGen()" id="adBtn" class="w-full bg-zrose py-3 rounded-lg font-bold text-white hover:bg-zpink transition mt-auto">Generate Ad Copy ✨</button>
+                    <div id="adResult" class="mt-4 text-xs text-gray-400 max-h-40 overflow-y-auto hidden bg-black/30 p-3 rounded border border-white/5"></div>
+                </div>
+
+                <!-- Tool 2: Page Auditor -->
+                <div class="ai-card p-8 rounded-2xl flex flex-col h-full">
+                    <div class="mb-6">
+                        <i class="fas fa-search-dollar text-zrose text-2xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-zwhite mb-2">Page Auditor ✨</h3>
+                        <p class="text-gray-400 text-sm">Let AI audit your website for conversion "leaks".</p>
+                    </div>
+                    <input id="siteUrl" type="text" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-sm text-zwhite mb-4 focus:border-zrose outline-none" placeholder="Paste your URL here...">
+                    <button onclick="runAuditor()" id="auditBtn" class="w-full bg-zrose py-3 rounded-lg font-bold text-white hover:bg-zpink transition mt-auto">Audit My Page ✨</button>
+                    <div id="auditResult" class="mt-4 text-xs text-gray-400 max-h-40 overflow-y-auto hidden bg-black/30 p-3 rounded border border-white/5"></div>
+                </div>
+
+                <!-- Tool 3: Strategy Planner -->
+                <div class="ai-card p-8 rounded-2xl flex flex-col h-full">
+                    <div class="mb-6">
+                        <i class="fas fa-chess text-zrose text-2xl mb-4"></i>
+                        <h3 class="text-xl font-bold text-zwhite mb-2">Strategy Plan ✨</h3>
+                        <p class="text-gray-400 text-sm">Get a 3-step growth roadmap for your 2026 goals.</p>
+                    </div>
+                    <input id="bizGoal" type="text" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-sm text-zwhite mb-4 focus:border-zrose outline-none" placeholder="Goal (e.g. 50 new leads/month)...">
+                    <button onclick="runStrategy()" id="stratBtn" class="w-full bg-zrose py-3 rounded-lg font-bold text-white hover:bg-zpink transition mt-auto">Get Roadmap ✨</button>
+                    <div id="stratResult" class="mt-4 text-xs text-gray-400 max-h-40 overflow-y-auto hidden bg-black/30 p-3 rounded border border-white/5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-24 px-6 bg-zdark">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-zwhite text-center mb-16">Success Stories</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 italic hover:border-zrose/50 transition">
+                    "Oiza scaled our user base from 1k to 11k+ using precise Meta Ads strategies. Her approach to growth is data-driven and undeniable."
+                    <div class="mt-6 not-italic font-bold text-zrose">— Founder, Corperland</div>
+                </div>
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 italic hover:border-zrose/50 transition">
+                    "Oiza helped restructure my business offering and directed my content. We flipped a 50k investment in ads into getting booked solid through December and January, leading to over 700k in sales."
+                    <div class="mt-6 not-italic font-bold text-zrose">— Ivy, Founder of Shot by Ivy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/10 text-center text-gray-500 text-sm bg-[#1a1a1a]">
+        <p>&copy; 2026 Z Does Marketing. Growth Expert.</p>
+        <div class="mt-4 flex justify-center space-x-6">
+            <a href="https://www.linkedin.com/in/oiza-ibrahim-84012519a/" target="_blank" class="hover:text-zrose transition">LinkedIn</a>
+            <a href="https://x.com/blessing_oiza" target="_blank" class="hover:text-zrose transition">X (Twitter)</a>
+            <a href="https://www.instagram.com/z_does_marketing/" target="_blank" class="hover:text-zrose transition">Instagram</a>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        const geminiApiKey = "AIzaSyAaHF5KioJcmBuz-akZF08w-aD5VsatGrs"; 
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyCtRcCr12nNm-Ewir2no1wIUawGt9N4R00",
+          authDomain: "z-does-marketing.firebaseapp.com",
+          projectId: "z-does-marketing",
+          storageBucket: "z-does-marketing.firebasestorage.app",
+          messagingSenderId: "772749036518",
+          appId: "1:772749036518:web:05684d781a47e37f372427",
+          measurementId: "G-5Q8P4QFFBK"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        
+        // Environment handling
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        // Auth: Sign in anonymously to allow writing to database
+        signInAnonymously(auth)
+            .then(() => console.log("Database connected."))
+            .catch((error) => {
+                console.error("Database connection failed:", error);
+                if (error.code === 'auth/configuration-not-found' || error.code === 'auth/operation-not-allowed') {
+                    console.warn("ACTION REQUIRED: Go to your Firebase Console > Authentication > Sign-in method and enable 'Anonymous' provider to fix this error.");
+                }
+            });
+
+
+        // --- APPLICATION LOGIC ---
+
+        // Scroll and Pre-select Service
+        window.selectService = function(serviceId) {
+            document.getElementById('formService').value = serviceId;
+            document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form Handling
+        window.handleFormSubmit = async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "Processing...";
+            submitBtn.disabled = true;
+
+            // Ensure Auth is ready, or warn if configured incorrectly
+            if (!auth.currentUser) {
+                 try { 
+                    await signInAnonymously(auth); 
+                 } catch(e) { 
+                    // We catch it so we can try to save anyway, in case DB rules are open
+                    console.warn("Attempting save without auth..."); 
+                 }
+            }
+
+            const formData = {
+                email: document.getElementById('formEmail').value,
+                service: document.getElementById('formService').value,
+                contactMethod: document.getElementById('formContact').value,
+                contactDetail: document.getElementById('formContactDetail').value,
+                preferredTime: document.getElementById('formTime').value,
+                submittedAt: serverTimestamp()
+            };
+
+            try {
+                // Save to Firestore: artifacts/{appId}/public/data/leads
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'leads'), formData);
+                
+                document.getElementById('growthForm').classList.add('hidden');
+                document.getElementById('formSuccess').classList.remove('hidden');
+            } catch (error) {
+                console.error("Error saving lead:", error);
+                
+                if (error.code === 'permission-denied') {
+                    alert("Unable to save: Database permission denied. Please enable 'Anonymous' authentication in your Firebase Console.");
+                } else {
+                    alert("There was an error saving your request. Please try again.");
+                }
+                
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        window.resetForm = function() {
+            document.getElementById('growthForm').classList.remove('hidden');
+            document.getElementById('formSuccess').classList.add('hidden');
+            document.getElementById('growthForm').reset();
+        }
+
+        // AI Tools Logic
+        async function callGemini(prompt, systemPrompt) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${geminiApiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error('API limit');
+                    const result = await response.json();
+                    return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                } catch (e) {
+                    if (i === 4) throw e;
+                    await new Promise(r => setTimeout(r, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        window.runAdGen = async function() {
+            const desc = document.getElementById('productDesc').value;
+            const btn = document.getElementById('adBtn');
+            const res = document.getElementById('adResult');
+            if (!desc) return;
+            btn.disabled = true; btn.innerText = "Analyzing...";
+            try {
+                const out = await callGemini(`Write an ad for: ${desc}`, "You are Z, performance marketer. Write a high-converting Facebook ad with hook, value, and CTA.");
+                res.innerText = out; res.classList.remove('hidden');
+            } finally { btn.disabled = false; btn.innerText = "Generate Ad Copy ✨"; }
+        }
+
+        window.runAuditor = async function() {
+            const url = document.getElementById('siteUrl').value;
+            const btn = document.getElementById('auditBtn');
+            const res = document.getElementById('auditResult');
+            if (!url) return;
+            btn.disabled = true; btn.innerText = "Scanning...";
+            try {
+                const out = await callGemini(`Audit: ${url}`, "You are Z, CRO expert. List 3 leaks and 1 win for this URL.");
+                res.innerText = out; res.classList.remove('hidden');
+            } finally { btn.disabled = false; btn.innerText = "Audit My Page ✨"; }
+        }
+
+        window.runStrategy = async function() {
+            const goal = document.getElementById('bizGoal').value;
+            const btn = document.getElementById('stratBtn');
+            const res = document.getElementById('stratResult');
+            if (!goal) return;
+            btn.disabled = true; btn.innerText = "Calculating...";
+            try {
+                const out = await callGemini(`Goal: ${goal}`, "You are Z. Create a 3-step growth plan for this goal using Meta/TikTok ads.");
+                res.innerText = out; res.classList.remove('hidden');
+            } finally { btn.disabled = false; btn.innerText = "Get Roadmap ✨"; }
+        }
+    </script>
+</body>
+</html>
