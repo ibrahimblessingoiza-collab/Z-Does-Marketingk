@@ -1,0 +1,513 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Menu, X, ArrowRight, BarChart3, PenTool, 
+  Megaphone, Mail, Linkedin, 
+  TrendingUp, Users, Target, ChevronRight,
+  MessageCircle, ExternalLink,
+  Image as ImageIcon, Video, Palette
+} from 'lucide-react';
+
+const Portfolio = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Expertise', href: '#expertise' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const tools = [
+    "Meta Ads", "Google Analytics", "Power BI", "SQL", 
+    "Notion", "Canva", "Mailchimp", "Miro", 
+    "Trello", "ChatGPT", "Gemini"
+  ];
+
+  const services = [
+    {
+      icon: <Target className="w-8 h-8 text-purple-600" />,
+      title: "Product Marketing Strategy",
+      items: ["Go-to-market planning", "Positioning & messaging", "Product-led growth", "User feedback analysis"]
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8 text-blue-600" />,
+      title: "Growth Marketing",
+      items: ["Funnel optimization", "Paid & Organic campaigns", "Referral strategies", "User journey mapping"]
+    },
+    {
+      icon: <MessageCircle className="w-8 h-8 text-pink-600" />,
+      title: "Social Media Management",
+      items: ["Visual branding", "Trend-jacking strategy", "Community engagement", "Monthly reporting"]
+    },
+    {
+      icon: <BarChart3 className="w-8 h-8 text-green-600" />,
+      title: "Analytics & Reporting",
+      items: ["KPI dashboards (Power BI)", "Funnel drop-off analysis", "Performance reports", "Optimization audits"]
+    },
+    {
+      icon: <Megaphone className="w-8 h-8 text-yellow-600" />,
+      title: "Paid Ads Strategy",
+      items: ["Meta, TikTok & X Ads", "Budget planning", "A/B Testing", "High-converting creatives"]
+    },
+    {
+      icon: <PenTool className="w-8 h-8 text-orange-600" />,
+      title: "Conversion Copywriting",
+      items: ["Landing pages", "Email sequences", "Ad copy & Scripts", "Sales pages"]
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Mercy Chioma",
+      role: "Client",
+      text: "Working with Blessing is like having an entire growth department in one person. Her strategic mind, attention to detail, and relentless drive to hit targets make her an invaluable asset. She combines creativity with data-backed decisions."
+    },
+    {
+      name: "Charles Akano",
+      role: "Client",
+      text: "Oiza is an excellent strategist. Her keen attention to detail is profound. She has a way of seeing your vision better than you explain it, and her delivery is on point."
+    },
+    {
+      name: "Situk Ime",
+      role: "Client",
+      text: "Oiza is an exceptional Product Manager who consistently delivers high-quality results. Her resourcefulness, creativity, and problem-solving skills are truly impressive."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#eaeaea] text-slate-900 font-sans selection:bg-purple-200 selection:text-purple-900 animate-in fade-in duration-500">
+      
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#eaeaea]/90 backdrop-blur-md border-b border-slate-200 py-3 shadow-sm' : 'bg-transparent py-5'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <a href="#" className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Blessing Ibrahim
+          </a>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex space-x-8 items-center">
+            {navLinks.map((link) => (
+              <a key={link.name} href={link.href} className="text-sm font-medium text-slate-600 hover:text-purple-600 transition-colors">
+                {link.name}
+              </a>
+            ))}
+            <a 
+              href="https://www.linkedin.com/in/oiza-ibrahim-84012519a/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-full text-sm font-bold transition-all shadow-lg shadow-purple-600/20"
+            >
+              Work With Me
+            </a>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button className="md:hidden text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-[#eaeaea] border-b border-slate-200 p-6 flex flex-col space-y-4 shadow-2xl">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="text-lg font-medium py-2 border-b border-slate-300 text-slate-800"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <a 
+              href="https://www.linkedin.com/in/oiza-ibrahim-84012519a/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-4 w-full text-center py-3 bg-purple-600 text-white rounded-lg font-bold"
+            >
+              Let's Talk
+            </a>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative pt-28 pb-10 md:pt-36 md:pb-12 px-6 overflow-hidden">
+        {/* Background Gradients (Light Mode) */}
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-purple-200/40 rounded-full blur-[120px] -z-10" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-200/40 rounded-full blur-[120px] -z-10" />
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6 order-2 md:order-1">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-100 border border-purple-200 text-purple-700 text-xs font-bold tracking-wider uppercase">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              <span>Available for new projects</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight text-slate-900">
+              Driving Visibility, <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500">
+                Engagement & Revenue
+              </span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-slate-600 max-w-lg leading-relaxed">
+              Hi, I'm <span className="text-slate-900 font-semibold">Oiza Blessing Ibrahim</span>. 
+              I'm a social media marketer and product strategist who helps founders translate ideas into revenue through storytelling and data.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="#contact" className="px-8 py-4 bg-slate-900 text-white rounded-full font-bold hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-slate-900/20">
+                Book a Consultation <ArrowRight className="w-4 h-4" />
+              </a>
+              <a href="#expertise" className="px-8 py-4 bg-white border border-slate-200 text-slate-700 rounded-full font-bold hover:border-purple-500 hover:text-purple-600 transition-all flex items-center justify-center shadow-sm">
+                View Expertise
+              </a>
+            </div>
+          </div>
+
+          <div className="relative order-1 md:order-2">
+             {/* Headshot Container */}
+             <div className="relative z-10 aspect-[4/5] md:w-4/5 mx-auto rounded-3xl overflow-hidden border border-slate-200 shadow-2xl group bg-white">
+                <img 
+                  src="https://i.postimg.cc/2y0b3Hcf/4ae05d1d-b0a1-43ff-89ce-555cbbb788c9-(1).jpg" 
+                  alt="Oiza Blessing Ibrahim" 
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                
+                {/* Floating Stats Card */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md border border-slate-100 p-4 rounded-xl shadow-xl transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                  <div className="flex items-center gap-4">
+                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-lg font-bold text-white">B</div>
+                     <div>
+                       <h3 className="font-bold text-slate-900 text-sm">Performance First</h3>
+                       <p className="text-xs text-green-600 flex items-center"><TrendingUp className="w-3 h-3 mr-1" /> Top 1% Talent</p>
+                     </div>
+                  </div>
+                </div>
+            </div>
+            
+            <div className="absolute top-10 -right-4 w-24 h-24 bg-purple-400 rounded-full blur-[60px] opacity-30 -z-10"></div>
+            <div className="absolute -bottom-10 -left-4 w-32 h-32 bg-blue-400 rounded-full blur-[60px] opacity-30 -z-10"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Toolbox Scroller */}
+      <div className="w-full bg-white py-6 border-y border-slate-200 overflow-hidden">
+        <p className="text-center text-slate-400 text-sm font-bold uppercase tracking-widest mb-4">My Toolkit</p>
+        <div className="relative flex overflow-x-hidden group">
+          <div className="animate-marquee whitespace-nowrap flex gap-12 items-center">
+            {[...tools, ...tools].map((tool, index) => (
+              <span key={index} className="text-xl md:text-2xl font-bold text-slate-400 hover:text-slate-800 transition-colors cursor-default">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <section id="about" className="py-10 px-6 max-w-7xl mx-auto">
+        <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm">
+          <div className="md:flex gap-12 items-start">
+            <div className="md:w-1/3 mb-8 md:mb-0">
+               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+                Marketing that solves problems & <span className="text-purple-600">generates revenue.</span>
+              </h2>
+              <div className="h-1 w-20 bg-purple-500 rounded-full"></div>
+            </div>
+            <div className="md:w-2/3 space-y-6 text-slate-600 text-lg leading-relaxed">
+              <p>
+                I craft campaigns that convert, copy that resonates, and reports that reveal the "why" behind every click. 
+                Whether you're a founder, a growing startup, or a service-based brand, I help you translate ideas into 
+                revenue through storytelling, data, and strategy.
+              </p>
+              <p>
+                I believe marketing should do two things: solve real problems for users and generate revenue for businesses.
+                My approach combines the creative art of storytelling with the scientific precision of data analytics.
+              </p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6">
+                <div>
+                  <h4 className="font-bold text-slate-900 text-xl">3+</h4>
+                  <p className="text-sm text-slate-500">Years Experience</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-xl">Data-Driven</h4>
+                  <p className="text-sm text-slate-500">Strategy First</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-xl">Full-Stack</h4>
+                  <p className="text-sm text-slate-500">Growth Marketer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW CONSOLIDATED PORTFOLIO SECTION */}
+      <section id="portfolio" className="py-10 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-16 overflow-hidden relative shadow-lg">
+            {/* Decorative Background Elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-purple-100/50 rounded-full blur-[100px] -z-10"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/50 rounded-full blur-[100px] -z-10"></div>
+
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-100 border border-purple-200 text-purple-700 text-xs font-bold tracking-wider uppercase mb-6">
+                  <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
+                  <span>Creative Showcase</span>
+                </div>
+                
+                <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900">
+                  Visuals that <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Stop the Scroll.</span>
+                </h2>
+                
+                <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                  I create high-impact videos, stunning graphics, and data-backed ad creatives designed to capture attention and drive conversions. My creative work is where strategy meets storytelling.
+                </p>
+
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 font-medium">
+                    <Video className="w-4 h-4 text-pink-500" /> Viral Reels
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 font-medium">
+                    <Palette className="w-4 h-4 text-purple-500" /> Graphic Design
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-700 font-medium">
+                    <Megaphone className="w-4 h-4 text-blue-500" /> Ad Creatives
+                  </div>
+                </div>
+
+                <a 
+                  href="https://www.canva.com/design/DAG-8_-wtaU/BBhBZi3pzFG7rWyn2_fXLQ/view?utm_content=DAG-8_-wtaU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb4e84fd099" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-700 transition-all shadow-lg shadow-purple-600/20 hover:scale-105"
+                >
+                  View My Creative Portfolio <ExternalLink className="w-5 h-5" />
+                </a>
+              </div>
+
+              <div className="relative">
+                {/* Visual Collage Placeholder */}
+                <div className="relative z-10 rounded-2xl overflow-hidden border border-slate-200 shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500">
+                   <img 
+                    src="https://i.postimg.cc/rwBddRJM/image.png" 
+                    alt="Creative Portfolio Preview" 
+                    className="w-full h-auto object-cover"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-transparent flex flex-col justify-end p-6">
+                    <p className="text-white font-bold text-xl">Selected Works</p>
+                    <p className="text-slate-300 text-sm">Graphics • Video • Strategy</p>
+                  </div>
+                </div>
+                {/* Decorative Elements behind image */}
+                <div className="absolute -top-4 -right-4 w-full h-full border-2 border-purple-200 rounded-2xl -z-10"></div>
+                <div className="absolute -bottom-4 -left-4 w-full h-full border-2 border-blue-200 rounded-2xl -z-10"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Selected Work (Case Studies) */}
+      <section className="py-10 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-10">
+             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-xs font-bold tracking-wider uppercase mb-4">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                <span>Case Studies</span>
+             </div>
+             <h2 className="text-3xl md:text-5xl font-bold text-slate-900">Selected Work</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Case Study 1 */}
+            <div className="bg-white border border-slate-200 rounded-3xl p-8 hover:border-purple-300 hover:shadow-lg transition-all group hover:-translate-y-1">
+               <div className="mb-6">
+                  <span className="text-purple-600 font-bold tracking-wider text-sm uppercase">Community Growth</span>
+                  <h3 className="text-2xl font-bold text-slate-900 mt-2">Corperland Growth Strategy</h3>
+               </div>
+               <p className="text-slate-600 mb-8 leading-relaxed h-20">
+                 Designed and executed a community-led growth strategy. I focused on storytelling and precise Meta Ads targeting to resonate with the youth demographic.
+               </p>
+               <div className="grid grid-cols-2 gap-4 pt-6 border-t border-slate-100">
+                  <div>
+                    <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600">1k to 11k+</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-wide mt-1 flex items-center gap-1">
+                      <Users className="w-3 h-3" /> User Scaling
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-slate-900">High</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-wide mt-1 flex items-center gap-1">
+                      <TrendingUp className="w-3 h-3" /> Retention Rate
+                    </p>
+                  </div>
+               </div>
+            </div>
+
+            {/* Case Study 2 */}
+            <div className="bg-white border border-slate-200 rounded-3xl p-8 hover:border-blue-300 hover:shadow-lg transition-all group hover:-translate-y-1">
+               <div className="mb-6">
+                  <span className="text-blue-600 font-bold tracking-wider text-sm uppercase">Paid Ads & ROI</span>
+                  <h3 className="text-2xl font-bold text-slate-900 mt-2">Shot by Ivy Campaign</h3>
+               </div>
+               <p className="text-slate-600 mb-8 leading-relaxed h-20">
+                 Restructured the business offering and directed content strategy. We launched a high-impact ad campaign during peak season.
+               </p>
+               <div className="grid grid-cols-2 gap-4 pt-6 border-t border-slate-100">
+                  <div>
+                    <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-600">₦50k → ₦700k</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-wide mt-1 flex items-center gap-1">
+                      <BarChart3 className="w-3 h-3" /> Ad Spend to Revenue
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-slate-900">100%</p>
+                    <p className="text-xs text-slate-500 uppercase tracking-wide mt-1 flex items-center gap-1">
+                      <Target className="w-3 h-3" /> Booked Capacity
+                    </p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise/Services Grid */}
+      <section id="expertise" className="py-10 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900">My Expertise</h2>
+            <p className="text-slate-600 text-lg">Comprehensive solutions for digital growth</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, idx) => (
+              <div key={idx} className="group bg-white border border-slate-200 p-8 rounded-2xl hover:border-purple-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="mb-6 bg-[#eaeaea] w-16 h-16 rounded-xl flex items-center justify-center border border-slate-200 group-hover:scale-110 transition-transform">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-slate-900 group-hover:text-purple-600 transition-colors">{service.title}</h3>
+                <ul className="space-y-3">
+                  {service.items.map((item, i) => (
+                    <li key={i} className="flex items-start text-slate-500 text-sm">
+                      <ChevronRight className="w-4 h-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="py-10 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-10 text-center text-slate-900">Words from <br/><span className="text-purple-600">Happy Clients</span></h2>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative hover:shadow-md transition-shadow">
+                <div className="text-6xl text-purple-200 font-serif absolute top-4 left-6 opacity-50">"</div>
+                <p className="text-slate-600 mb-6 relative z-10 italic leading-relaxed">
+                  {t.text}
+                </p>
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-orange-500 flex items-center justify-center font-bold text-white text-sm">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
+                    <p className="text-xs text-slate-500 uppercase tracking-wide">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA / Contact */}
+      <section id="contact" className="py-10 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-br from-purple-700 to-blue-700 rounded-3xl p-12 relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 blur-[80px] -z-10"></div>
+            
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">Let's grow your brand.</h2>
+            <p className="text-xl text-slate-100 mb-10 max-w-2xl mx-auto">
+              Ready to turn data into revenue? Whether it's a new product launch or a full growth strategy, I'm ready to help.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center flex-wrap">
+              <a 
+                href="mailto:ibrahimblessingoiza@gmail.com"
+                className="px-8 py-4 bg-white text-purple-900 rounded-full font-bold text-lg hover:bg-slate-100 transition-colors flex items-center gap-2"
+              >
+                <Mail className="w-5 h-5" />
+                Contact Me
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/oiza-ibrahim-84012519a/" 
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-4 bg-transparent border-2 border-slate-300 text-white rounded-full font-bold text-lg hover:border-white transition-colors flex items-center gap-2"
+              >
+                <Linkedin className="w-5 h-5" />
+                LinkedIn
+              </a>
+              <a 
+                href="https://wa.me/message/T3GSOTVR6N2KP1" 
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-4 bg-[#25D366] text-white rounded-full font-bold text-lg hover:bg-[#20bd5a] transition-colors flex items-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 border-t border-slate-300 text-center text-slate-500 text-sm">
+        <p>© {new Date().getFullYear()} Oiza Blessing Ibrahim. All rights reserved.</p>
+        <p className="mt-2">Designed by Blessing Ibrahim</p>
+      </footer>
+
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default Portfolio;
